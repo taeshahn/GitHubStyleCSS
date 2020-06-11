@@ -24,7 +24,6 @@ Nanum Gothic Coding : url('https://fonts.googleapis.com/css2?family=Nanum+Gothic
 
 /* RESET
 =============================================================================*/
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -33,8 +32,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /* BODY
 =============================================================================*/
-
-body {
+html, body {
   font-family: 'Noto Sans KR', 'Malgun Gothic', NanumGothic, Helvetica, arial, freesans, clean, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -43,6 +41,7 @@ body {
   padding: 0px 30px 0px 30px;
   max-width: 960px;
   margin: 0 auto;
+	word-wrap: break-word;
 }
 
 body>*:first-child {
@@ -55,7 +54,6 @@ body>*:last-child {
 
 /* BLOCKS
 =============================================================================*/
-
 p, blockquote, ul, ol, dl, table, pre {
   margin: 15px 0;
 }
@@ -202,14 +200,18 @@ code, tt {
   border: 1px solid #eaeaea;
   background-color: #f8f8f8;
   border-radius: 3px;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-pre>code {
+pre code {
+  tab-size: 4;
   margin: 0;
   padding: 0;
   white-space: pre;
   border: none;
-  background: transparent;
+  background-color: transparent;
+  color: inherit;
 }
 
 pre {
@@ -222,9 +224,10 @@ pre {
   border-radius: 3px;
 }
 
-pre code, pre tt {
+pre tt {
   background-color: transparent;
   border: none;
+  color: inherit;
 }
 
 kbd {
@@ -284,6 +287,10 @@ table {
   font-size: 14px;
 }
 
+table thead tr {
+  background-color: #e7e7e7;
+}
+
 table th {
   font-weight: bold;
 }
@@ -306,5 +313,193 @@ table tr:nth-child(2n) {
 =============================================================================*/
 
 img {
-  max-width: 100%
+	max-width: 100%;
+	max-height: 100%;
 }
+
+
+/* VS CODE
+=============================================================================*/
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+.vscode-light table > thead > tr > th {
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+}
+
+.vscode-dark table > thead > tr > th {
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+}
+
+.vscode-light h1 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.vscode-light hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #ddd;
+  padding: 0;
+}
+
+.vscode-light table > tbody > tr + tr > td {
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+}
+
+.vscode-dark h1 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.vscode-dark hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #ddd;
+  padding: 0;
+}
+
+.vscode-dark table > tbody > tr + tr > td {
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+}
+
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgb(255, 163, 163);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgb(255, 163, 163);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: #f8f8f8;
+}
+
+.vscode-dark pre {
+	background-color: #f8f8f8;
+}
+
+.vscode-high-contrast pre {
+	background-color: #f8f8f8;
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
